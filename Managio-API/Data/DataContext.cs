@@ -1,3 +1,4 @@
+using Managio_API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Managio_API.Data
@@ -6,7 +7,7 @@ namespace Managio_API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        
-        
+        public DbSet<Project> Projects { get; set; }
+
     }
 }
