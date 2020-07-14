@@ -9,10 +9,7 @@ namespace Managio_API.Data
 
         public DbSet<Project> Projects { get; set; }
 
-        public void UpdateProject(Project project)
-        {
-            //nothing
-        }
+        public DbSet<User> Users { get; set; }
 
     }
 }
