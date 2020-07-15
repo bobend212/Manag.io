@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Managio_API.Data;
+using Managio_API.DTOs;
 using Managio_API.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,21 +17,21 @@ namespace Managio_API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(string username, string password)
+        public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             //validate later
 
-            username = username.ToLower();
+            userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
-            if (await _repo.UserExist(username))
+            if (await _repo.UserExist(userForRegisterDto.Username))
                 return BadRequest("Username already exist.");
 
             var userToCreate = new User
             {
-                Username = username
+                Username = userForRegisterDto.Username
             };
 
-            var createdUser = await _repo.Register(userToCreate, password);
+            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
             return StatusCode(201); //fix later
         }
