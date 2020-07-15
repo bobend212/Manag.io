@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Managio_API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ProjectsController : ControllerBase
@@ -29,6 +30,7 @@ namespace Managio_API.Controllers
             return Ok(projects);
         }
 
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProject(int id)
         {
