@@ -58,3 +58,8 @@ http://localhost:5000/timesheets/{timesheetId} = edit details with records
 --> /// Testy Jednostkowe /// <--
 --> /// Stworzyc koncepcje UI /// <--
 --> /// Opracowac DB Schema! /// <--
+
+
+***** UI *****
+
+- ogarnac warunkowe wyswietlanie komponentow 16/07 (home component)

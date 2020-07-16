@@ -1,0 +1,15 @@
+<form #loginForm="ngForm" (ngSubmit)="login()">
+  <h2 class="text-center text-primary">Login</h2>
+  <hr>
+
+  <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required
+    [(ngModel)]="model.username">
+  <input class="form-control mr-sm-2" type="text" name="password" placeholder="Password" required
+    [(ngModel)]="model.password">
+
+  <div class="form-group text-center mt-1">
+    <button class="btn btn-success" type="submit" (click)="login()">Submit</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+  </div>
+
+</form>

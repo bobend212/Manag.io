@@ -1,2 +1,6 @@
-<app-nav></app-nav>
-<app-project></app-project>
+<div *ngIf="loggedIn()">
+    <app-nav></app-nav>
+</div>
+
+
+<app-home></app-home>

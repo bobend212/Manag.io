@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div *ngIf="!loginMode" style="text-align: center">
+    <h1>Manag.io</h1>
+    <h2>USER | TIMESHEET | PROJECT</h2>
+    <p class="lead">All you need is... log in!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-2" (click)="loginToggle()">Login</button>
+      <!-- <button class="btn btn-info btn-lg">Help</button> // todo. manual/instructions/how to start etc. -->
+    </div>
+  </div>
+
+  <div *ngIf="loginMode" class="container">
+    <div class="row justify-content-center">
+      <div *ngIf="!loggedIn()" class="col-4">
+        <app-login (cancelLogin)="cancelLoginMode($event)"></app-login>
+      </div>
+    </div>
+  </div>
+</div>
