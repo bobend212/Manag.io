@@ -2,5 +2,10 @@
     <app-nav></app-nav>
 </div>
 
+<div *ngIf="!loggedIn()">
+    <app-home></app-home>
+</div>
 
-<app-home></app-home>
+<div *ngIf="loggedIn()">
+    <router-outlet></router-outlet>
+</div>

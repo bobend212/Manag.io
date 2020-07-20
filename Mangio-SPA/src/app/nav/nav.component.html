@@ -2,19 +2,19 @@
   <a class="navbar-brand" href="#">Manag.io</a>
 
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
+    <li class="nav-item" routerLinkActive="active">
       <a class="nav-link" href="#">Projects & Clients [all]</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Timesheets [all]</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link">Timesheets [all]</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" routerLinkActive="active">
       <a class="nav-link" href="#">Workflow [all]</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Users REGISTER! [not all]</a>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/register']">Users REGISTER! [not all]</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" routerLinkActive="active">
       <a class="nav-link" (click)="logout()">Logout</a>
     </li>
     <!-- <li class="nav-item">
