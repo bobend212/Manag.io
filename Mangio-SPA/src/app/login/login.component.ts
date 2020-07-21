@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.model).subscribe(next => {
       console.log('logged in');
     }, err => {
-      console.log('login failed');
+      console.log(err);
     });
   }
 
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem('token');
     console.log('logged out');
   }
+
   cancel() {
     this.cancelLogin.emit(false);
     console.log('cancelled');
