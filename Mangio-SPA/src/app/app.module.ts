@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/project.component';
 import { NavComponent } from './nav/nav.component';
-import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -30,7 +29,6 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
       RouterModule.forRoot(appRoutes)
    ],
    providers: [
-      AuthService,
       ErrorInterceptorProvider
    ],
    bootstrap: [
