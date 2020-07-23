@@ -1,3 +1,5 @@
+using System;
+
 namespace Managio_API.Models
 {
     public class User
@@ -6,5 +8,14 @@ namespace Managio_API.Models
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Gender { get; set; }
+        public string JobTitle { get; set; }
+
+
     }
 }
