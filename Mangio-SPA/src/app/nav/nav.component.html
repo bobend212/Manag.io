@@ -1,20 +1,35 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand" href="#">Manag.io</a>
+    <a class="navbar-brand" href="#">Manag.io |</a>
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" href="#">Projects & Clients [all]</a>
+        <a class="nav-link" href="#"><i class="fa fa-black-tie"></i> Projects</a>
       </li>
+      <div class="dropdown" dropdown>
+        <li class="nav-item" routerLinkActive="active" dropdownToggle>
+          <a class="nav-link dropdown-toggle"><i class="fa fa-calendar-minus-o"></i> Timesheets</a>
+        </li>
+        <div class="dropdown-menu mt-2" *dropdownMenu>
+          <a class="dropdown-item" href="#"><i class="fa fa-calendar"></i> Monthly</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-calendar-minus-o"></i> Annual</a>
+        </div>
+      </div>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link">Timesheets [all]</a>
+        <a class="nav-link" href="#"><i class="fa fa-spinner"></i> Workflow</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" href="#">Workflow [all]</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/register']">Users REGISTER! [not all]</a>
-      </li>
+      <!-- <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/register']"><i class="fa fa-users"></i> Users</a>
+      </li> -->
+      <div class="dropdown" dropdown>
+        <li class="nav-item" routerLinkActive="active" dropdownToggle>
+          <a class="nav-link dropdown-toggle"><i class="fa fa-users"></i> Users</a>
+        </li>
+        <div class="dropdown-menu mt-2" *dropdownMenu>
+          <a class="dropdown-item" [routerLink]="['/users/register']"><i class="fa fa-user-plus"></i> Register</a>
+          <a class="dropdown-item" [routerLink]="['/users']"><i class="fa fa-address-book"></i> List of Users</a>
+        </div>
+      </div>
       <!-- <li class="nav-item">
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
     </li> 
@@ -31,7 +46,7 @@
     </ul>
 
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
-      <a class="dropdown-toggle text-light" dropdownToggle>
+      <a class="dropdown-toggle text-light" dropdownToggle><i class="fa fa-user-circle"></i>
         Hello {{authService.decodedToken?.unique_name | titlecase}}
       </a>
 

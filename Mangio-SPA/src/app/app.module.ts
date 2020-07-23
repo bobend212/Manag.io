@@ -14,6 +14,7 @@ import { appRoutes } from './routes';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
    declarations: [
@@ -22,7 +23,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
       NavComponent,
       HomeComponent,
       LoginComponent,
-      RegisterComponent
+      RegisterComponent,
+      UsersComponent
    ],
    imports: [
       BrowserModule,
