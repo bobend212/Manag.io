@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Managio_API.Models
 {
@@ -15,6 +16,8 @@ namespace Managio_API.Models
         public DateTime HireDate { get; set; }
         public string Gender { get; set; }
         public string JobTitle { get; set; }
+
+        public virtual ICollection<UserProject> UserProjects { get; set; }
 
 
     }
