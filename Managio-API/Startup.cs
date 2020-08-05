@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Managio_API.Data;
 using Managio_API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -39,11 +40,18 @@ namespace Managio_API
                 opt.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling =
+                Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
 
             services.AddCors();
+            services.AddAutoMapper(typeof(UserRepository).Assembly);
 
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt =>
                 {
