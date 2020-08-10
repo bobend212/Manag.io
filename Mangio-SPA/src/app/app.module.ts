@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/project.component';
@@ -15,6 +16,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
    declarations: [
@@ -24,7 +26,8 @@ import { UsersComponent } from './users/users.component';
       HomeComponent,
       LoginComponent,
       RegisterComponent,
-      UsersComponent
+      UsersComponent,
+      UserDetailComponent
    ],
    imports: [
       BrowserModule,
@@ -32,7 +35,16 @@ import { UsersComponent } from './users/users.component';
       FormsModule,
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: () => {
+               return localStorage.getItem('token');
+            },
+            allowedDomains: ['localhost:5000'],
+            disallowedRoutes: ['localhost:5000/auth']
+         }
+      })
    ],
    providers: [
       ErrorInterceptorProvider
