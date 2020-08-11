@@ -3,6 +3,8 @@ import { User } from '../_models/user';
 import { UserService } from '../_services/user.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
+import { Project } from '../_models/project';
+import { UserProject } from '../_models/userProject';
 
 @Component({
   selector: 'app-user-detail',

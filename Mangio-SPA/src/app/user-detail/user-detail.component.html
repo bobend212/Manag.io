@@ -20,7 +20,7 @@
             <strong>Phone</strong>
             <p>{{user?.phone}}</p>
             <strong>Hire Date</strong>
-            <p>{{user?.hireDate}}</p>
+            <p>{{user?.hireDate | date: 'mediumDate'}}</p>
             <strong>Job Title</strong>
             <p>{{user?.jobTitle}}</p>
           </div>
@@ -37,14 +37,34 @@
       <div class="tab-panel">
         <tabset>
           <tab heading="Projects">
-            <h4>{{user?.firstName}} {{user?.lastName}}'s current projects</h4>
-            <p *ngFor="let item of user?.userProjects">
+
+            <div class="container mt-4">
+              <h4>{{user?.firstName}} {{user?.lastName}}'s current projects</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>IsFinished</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of user?.userProjects">
+                    <td>{{item.projectNumber}}</td>
+                    <td>{{item.projectName}}</td>
+                    <td>{{item.isFinished}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- <p *ngFor="let item of user?.userProjects">
               {{item.projectNumber}} {{item.projectName}} {{item.isFinished}}
-            </p>
+            </p> -->
           </tab>
           <tab heading="Change password">
             <h4>#$^&*</h4>
-            <p>Changing password functionality here.</p>
+            <p>Password changing functionality here.</p>
           </tab>
         </tabset>
       </div>

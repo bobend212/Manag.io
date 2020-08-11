@@ -40,6 +40,7 @@ namespace Managio_API.Controllers
             return Ok(project);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<Project> AddProject([FromBody] Project project)
         {
@@ -49,6 +50,7 @@ namespace Managio_API.Controllers
             return project;
         }
 
+        [AllowAnonymous]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProject(int id, [FromBody] Project projectToUpdate)
         {
