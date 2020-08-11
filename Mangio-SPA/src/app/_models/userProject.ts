@@ -6,4 +6,7 @@ export interface UserProject {
     projectId: number;
     user: User;
     project: Project
+    projectNumber: string;
+    projectName: string;
+    isFinished: boolean;
 }

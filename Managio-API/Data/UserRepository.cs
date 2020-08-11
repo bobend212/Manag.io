@@ -26,7 +26,7 @@ namespace Managio_API.Data
 
         public async Task<User> GetUser(int id)
         {
-            var user = await _context.Users.Include(p => p.UserProjects).FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _context.Users.Include(p => p.UserProjects).ThenInclude(c => c.Project).FirstOrDefaultAsync(x => x.Id == id);
             return user;
         }
 

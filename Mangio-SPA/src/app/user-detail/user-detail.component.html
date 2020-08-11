@@ -39,7 +39,7 @@
           <tab heading="Projects">
             <h4>{{user?.firstName}} {{user?.lastName}}'s current projects</h4>
             <p *ngFor="let item of user?.userProjects">
-              {{item.projectId}}
+              {{item.projectNumber}} {{item.projectName}} {{item.isFinished}}
             </p>
           </tab>
           <tab heading="Change password">

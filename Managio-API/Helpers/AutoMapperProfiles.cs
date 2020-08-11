@@ -1,3 +1,4 @@
+using System.Linq;
 using AutoMapper;
 using Managio_API.DTOs;
 using Managio_API.Models;
@@ -11,7 +12,9 @@ namespace Managio_API.Helpers
             CreateMap<User, UserForListDto>();
             CreateMap<User, UserForDetailedListDto>();
 
-            CreateMap<UserProject, ProjectsForDetailedUserDto>();
+            CreateMap<UserProject, ProjectsForDetailedUserDto>()
+                .ForMember(dto => dto.IsFinished, opt => opt.MapFrom(x => x.Project.IsFinished));
+
         }
     }
 }
