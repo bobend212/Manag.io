@@ -51,6 +51,7 @@ namespace Managio_API
 
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt =>

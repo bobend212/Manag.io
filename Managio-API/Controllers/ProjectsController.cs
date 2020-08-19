@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Managio_API.Data;
+using Managio_API.DTOs;
 using Managio_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +17,13 @@ namespace Managio_API.Controllers
     public class ProjectsController : ControllerBase
     {
         private readonly DataContext _context;
-        public ProjectsController(DataContext context)
+        private readonly IProjectRepository _repo;
+        private readonly IMapper _mapper;
+        public ProjectsController(IProjectRepository repo, IMapper mapper, DataContext context)
         {
+            _mapper = mapper;
+            _repo = repo;
+
             _context = context;
         }
 
@@ -23,50 +31,51 @@ namespace Managio_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProjects()
         {
-            var projects = await _context.Projects.ToListAsync();
+            var projects = await _repo.GetProjects();
 
-            if (projects.Count == 0)
-                return Content("Project list is empty.");
+            var projectsToReturn = _mapper.Map<IEnumerable<ProjectsForListDto>>(projects);
 
-            return Ok(projects);
+            return Ok(projectsToReturn);
         }
 
         [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProject(int id)
         {
-            var project = await _context.Projects.FirstOrDefaultAsync(x => x.Id == id);
+            var project = await _repo.GetProject(id);
 
-            return Ok(project);
+            var projectToReturn = _mapper.Map<ProjectForDetailedDto>(project);
+
+            return Ok(projectToReturn);
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        public async Task<Project> AddProject([FromBody] Project project)
-        {
-            await _context.Projects.AddAsync(project);
-            await _context.SaveChangesAsync();
+        // [AllowAnonymous]
+        // [HttpPost]
+        // public async Task<Project> AddProject([FromBody] Project project)
+        // {
+        //     await _context.Projects.AddAsync(project);
+        //     await _context.SaveChangesAsync();
 
-            return project;
-        }
+        //     return project;
+        // }
 
-        [AllowAnonymous]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProject(int id, [FromBody] Project projectToUpdate)
-        {
-            var project = await _context.Projects.FirstOrDefaultAsync(x => x.Id == id);
+        // [AllowAnonymous]
+        // [HttpPut("{id}")]
+        // public async Task<IActionResult> UpdateProject(int id, [FromBody] Project projectToUpdate)
+        // {
+        //     var project = await _context.Projects.FirstOrDefaultAsync(x => x.Id == id);
 
-            if (project != null)
-            {
-                project.Number = projectToUpdate.Number;
-                project.Name = projectToUpdate.Name;
-                project.DateAdded = projectToUpdate.DateAdded;
-                project.IsFinished = projectToUpdate.IsFinished;
-            }
+        //     if (project != null)
+        //     {
+        //         project.Number = projectToUpdate.Number;
+        //         project.Name = projectToUpdate.Name;
+        //         project.DateAdded = projectToUpdate.DateAdded;
+        //         project.IsFinished = projectToUpdate.IsFinished;
+        //     }
 
-            await _context.SaveChangesAsync();
+        //     await _context.SaveChangesAsync();
 
-            return Content("Updated successfully");
-        }
+        //     return Content("Updated successfully");
+        // }
     }
 }
