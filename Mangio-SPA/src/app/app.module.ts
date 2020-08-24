@@ -4,6 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './project/project.component';
@@ -46,7 +51,12 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
             allowedDomains: ['localhost:5000'],
             disallowedRoutes: ['localhost:5000/auth']
          }
-      })
+      }),
+      TableModule,
+      ButtonModule,
+      CalendarModule,
+      MultiSelectModule,
+      DropdownModule
    ],
    providers: [
       ErrorInterceptorProvider

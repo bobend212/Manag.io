@@ -10,6 +10,7 @@ namespace Managio_API.Models
         public string Name { get; set; }
         public DateTime DateAdded { get; set; }
         public bool IsFinished { get; set; }
+        public string Status { get; set; }
         public virtual ICollection<UserProject> UserProjects { get; set; }
     }
 }

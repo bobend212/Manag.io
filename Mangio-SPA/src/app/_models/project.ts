@@ -5,6 +5,7 @@ export interface Project {
     number: string;
     name: string;
     dateAdded: Date;
+    status: string;
     isFinished: boolean;
     userProjects?: UserProject[];
 }

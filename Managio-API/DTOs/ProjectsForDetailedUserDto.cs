@@ -7,6 +7,7 @@ namespace Managio_API.DTOs
         public int ProjectId { get; set; }
         public string ProjectNumber { get; set; }
         public string ProjectName { get; set; }
+        public string Status { get; set; }
         public bool IsFinished { get; set; }
     }
 }
