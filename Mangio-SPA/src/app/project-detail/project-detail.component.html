@@ -1,0 +1,65 @@
+<!-- <p>
+  {{user?.jobTitle}} </p>
+
+<p *ngFor="let item of user?.userProjects">
+  {{item.projectId}}
+</p> -->
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <strong>ID</strong>
+            <p>{{project?.id}}</p>
+            <strong>Number</strong>
+            <p>{{project?.number}}</p>
+            <strong>Name</strong>
+            <p>{{project?.name}}</p>
+            <strong>Date Added</strong>
+            <p>{{project?.dateAdded | date: 'mediumDate'}}}}</p>
+            <strong>Status</strong>
+            <p>{{project?.status}}</p>
+            <strong>Is Finished?</strong>
+            <p>{{project?.isFinished}}</p>
+          </div>
+        </div>
+        <div class="card-footer p-3">
+          <div>
+            <button class="btn btn-primary mb-1 w-100">Edit</button>
+            <button class="btn btn-warning w-100">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset>
+          <div class="container mt-4">
+            <h4>Contributors</h4>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of project?.userProjects">
+                  <td>{{item.firstName}} {{item.lastName}}</td>
+                  <td><button class="btn btn-info" [routerLink]="['/users/', item.userId]"
+                      type="button">Details</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- <p *ngFor="let item of user?.userProjects">
+              {{item.projectNumber}} {{item.projectName}} {{item.isFinished}}
+            </p> -->
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

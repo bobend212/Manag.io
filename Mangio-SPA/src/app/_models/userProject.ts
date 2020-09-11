@@ -9,4 +9,6 @@ export interface UserProject {
     projectNumber: string;
     projectName: string;
     isFinished: boolean;
+    firstName: string;
+    lastName: string;
 }

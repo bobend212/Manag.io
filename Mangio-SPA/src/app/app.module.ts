@@ -23,9 +23,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 @NgModule({
-   declarations: [
+   declarations: [	
       AppComponent,
       ProjectComponent,
       NavComponent,
@@ -33,7 +34,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
       LoginComponent,
       RegisterComponent,
       UsersComponent,
-      UserDetailComponent
+      UserDetailComponent,
+      ProjectDetailComponent
    ],
    imports: [
       BrowserModule,
