@@ -1,4 +1,61 @@
-<p>
-  {{user.email}}
-  {{user.firstName}}
-</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Your Profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have made changes. Any unsaved changes
+        will be lost!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <div>
+            <strong>Hire Date</strong>
+            <p>{{ user.hireDate | date: 'mediumDate' }}</p>
+          </div>
+          <div>
+            <strong>Gender</strong>
+            <p>{{ user.gender }}</p>
+          </div>
+          <div>
+            <strong>Job Title</strong>
+            <p>{{ user.jobTitle }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Edit Profile">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+              <h4>First name</h4>
+              <textarea name="firstName" rows="1" class="form-control" [(ngModel)]="user.firstName"></textarea>
+              <h4>Last name</h4>
+              <textarea name="lastName" rows="1" class="form-control" [(ngModel)]="user.lastName"></textarea>
+              <h4>Email</h4>
+              <textarea name="email" rows="1" class="form-control" [(ngModel)]="user.email"></textarea>
+              <h4>Phone</h4>
+              <textarea name="phone" rows="1" class="form-control" [(ngModel)]="user.phone"></textarea>
+              <div class="card-footer mt-2">
+                <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">
+                  Save changes
+                </button>
+              </div>
+
+            </form>
+            <div *ngIf="editForm.dirty" class="card-footer mt-2">
+              <button class="btn btn-warning btn-block" (click)="cancelChanges()">
+                Cancel changes
+              </button>
+            </div>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
