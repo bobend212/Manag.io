@@ -24,9 +24,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserEditResolver } from './_resolvers/user-edit.resolver';
 
 @NgModule({
-   declarations: [	
+   declarations: [
       AppComponent,
       ProjectComponent,
       NavComponent,
@@ -35,7 +37,8 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
       RegisterComponent,
       UsersComponent,
       UserDetailComponent,
-      ProjectDetailComponent
+      ProjectDetailComponent,
+      UserEditComponent
    ],
    imports: [
       BrowserModule,
@@ -61,7 +64,8 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
       DropdownModule
    ],
    providers: [
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      UserEditResolver
    ],
    bootstrap: [
       AppComponent
