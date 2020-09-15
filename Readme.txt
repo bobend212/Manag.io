@@ -4,23 +4,27 @@ Funkcjonalnosci (priorytetowo):
 
 Rejestrowanie(dodawanie) uzytkownikow do bazy [MANAGER, LEADER]
 Usuwanie uzytkownikow z systemu
-Edycja kont uzytkownikow w systemie
-Mozliwosc logowania [ALL]
-Mozliwosc wylogowywania
-Edycja swojego konta [ALL]
+Edycja kont uzytkownikow w systemie [MANAGER, ADMIN]
+[x] Mozliwosc logowania [ALL]
+[x] Mozliwosc wylogowywania
+[x] Edycja swojego konta [ALL]
 Role
 Przypisywanie rol, usuwanie, zmienianie.
+Funkcjonalnosc zmiany/przypomnienia hasla do konta.
 
 --PROJEKTY/KLIENCI--
 
-Lista projektow/klientow [ZALOGOWANI ALL]
-Mozliwosc edycji, usuwania i dodawania projektu do bazy
+[x] Lista projektow/klientow [ZALOGOWANI ALL]
+[x] Filtrowanie tabeli z projektami
+Zmiana statusu projektu przez uzytkownika.
+Wypisanie lub zapisanie sie do danego praojektu.
+Mozliwosc edycji, usuwania i dodawania projektu do bazy.
 
 --WORKFLOW--
 
-Project Workflow [Zalogowani ALL] (Kto na jakim projekcie w danej chwili sie znajduje)
-Przypisywanie uzytkownikow do projektu [MANAGER, LEADER] drag and drop?
-Ustawianie stanu w jakim znajduje sie dany projekt // not ready, in progress, ready, done, on hold (dopracowac)
+Project Workflow [Zalogowani ALL] (Kto na jakim projekcie w danej chwili sie znajduje) >> SIATKA KOMPONENTOW
+Przypisywanie uzytkownikow do projektu [MANAGER, LEADER] >> drag and drop?
+Ustawianie statusu projektu // not ready, in progress, ready, done, on hold (dopracowac)
 
 --TIMESHEET--
 
@@ -62,4 +66,4 @@ http://localhost:5000/timesheets/{timesheetId} = edit details with records
 
 ***** UI *****
 
-- ogarnac warunkowe wyswietlanie komponentow 16/07 (home component)
+- [x] ogarnac warunkowe wyswietlanie komponentow 16/07 (home component)
