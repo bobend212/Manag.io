@@ -12,6 +12,8 @@ namespace Managio_API.Helpers
             CreateMap<User, UserForListDto>();
             CreateMap<User, UserForDetailedListDto>();
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<UserForRegisterDto, User>();
+
 
             CreateMap<UserProject, ProjectsForDetailedUserDto>()
                 .ForMember(dto => dto.IsFinished, opt => opt.MapFrom(x => x.Project.IsFinished));
