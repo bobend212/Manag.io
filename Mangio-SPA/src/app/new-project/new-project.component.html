@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <form class="col-4" [formGroup]="newProjectForm" (ngSubmit)="addNewProject()">
+      <h2 class="text-center text-primary">New Project</h2>
+      <hr>
+
+      <div class="form-group">
+        <input [ngClass]="{'is-invalid': newProjectForm.get('number').errors && newProjectForm.get('number').touched}"
+          class="form-control" placeholder="Number" formControlName="number">
+        <div class="invalid-feedback"
+          *ngIf="newProjectForm.get('number').touched && newProjectForm.get('number').hasError('required')">Project
+          Number
+          is required.</div>
+      </div>
+
+      <div class="form-group">
+        <input [ngClass]="{'is-invalid': newProjectForm.get('name').errors && newProjectForm.get('name').touched}"
+          class="form-control" placeholder="Name" formControlName="name">
+        <div class="invalid-feedback"
+          *ngIf="newProjectForm.get('name').touched && newProjectForm.get('name').hasError('required')">Project Name
+          is required.</div>
+      </div>
+
+      <div class="form-group">
+        <select [ngClass]="{'is-invalid': newProjectForm.get('status').errors && newProjectForm.get('status').touched}"
+          class="custom-select" formControlName="status">
+          <option value="">Status</option>
+          <option value="new">new</option>
+          <option value="cancelled">cancelled</option>
+          <option value="checking">checking</option>
+          <option value="on hold">on hold</option>
+          <option value="in progress">in progress</option>
+          <option value="done">done</option>
+        </select>
+        <!-- error block -->
+        <div class="invalid-feedback"
+          *ngIf="newProjectForm.get('status').touched && newProjectForm.get('status').hasError('required')">You must
+          specify a status!</div>
+      </div>
+
+      <div class="form-group text-center">
+        <button class="btn btn-success" type="submit">Add</button>
+      </div>
+
+    </form>
+  </div>
+</div>

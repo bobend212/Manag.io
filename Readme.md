@@ -16,8 +16,10 @@
 - [x] Filtrowanie tabeli z projektami
 - [ ] Zmiana statusu projektu przez uzytkownika. [zalogowany]
 - [ ] Wypisanie lub zapisanie sie do danego projektu. [zalogowany]
-- [ ] Mozliwosc edycji, usuwania i dodawania projektu do bazy.
-- [ ] ustawic defaultowy status dla tworzonego projektu 'New'.
+- [x] Mozliwosc dodawania projektu do bazy.
+- [ ] Mozliwosc usuwania projektu z bazy.
+- [ ] Mozliwosc edycji projektu w bazie.
+- [x] ustawic defaultowy status dla tworzonego projektu 'New'.
 
 **WORKFLOW**
 
@@ -72,9 +74,14 @@ http://localhost:5000/timesheets/{timesheetId} = edit details with records
 
 ###statusy projektow
 W systemie znajduje sie kilka statusow jakie mozna ustawiac dla projektow.
-Kazdy nowo dodany projekt musi posiadac status 'New'.
+Kazdy nowo dodany projekt posiada status 'New'.
 
 Lista statusow:
-In Progress, Done, On Hold, Checking, Cancelled, New
+1. New 
+2. In Progress 
+3. Checking
+4. Done
+0. Cancelled
+0. On Hold
 
 ---

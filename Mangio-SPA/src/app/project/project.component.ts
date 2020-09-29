@@ -22,8 +22,12 @@ export class ProjectComponent implements OnInit {
     this.loadProjects();
 
     this.statuses = [
-      { label: 'Completed', value: 'Completed' },
-      { label: 'In Progress', value: 'In Progress' }
+      { label: 'New', value: 'New' },
+      { label: 'In Progress', value: 'In Progress' },
+      { label: 'Checking', value: 'Checking' },
+      { label: 'Done', value: 'Done' },
+      { label: 'Cancelled', value: 'Cancelled' },
+      { label: 'On Hold', value: 'On Hold' },
     ];
   }
 

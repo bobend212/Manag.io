@@ -26,9 +26,10 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { NewProjectComponent } from './new-project/new-project.component';
 
 @NgModule({
-   declarations: [
+   declarations: [	
       AppComponent,
       ProjectComponent,
       NavComponent,
@@ -38,7 +39,8 @@ import { UserEditResolver } from './_resolvers/user-edit.resolver';
       UsersComponent,
       UserDetailComponent,
       ProjectDetailComponent,
-      UserEditComponent
+      UserEditComponent,
+      NewProjectComponent
    ],
    imports: [
       BrowserModule,

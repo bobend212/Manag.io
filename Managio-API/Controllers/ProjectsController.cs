@@ -49,15 +49,15 @@ namespace Managio_API.Controllers
             return Ok(projectToReturn);
         }
 
-        // [AllowAnonymous]
-        // [HttpPost]
-        // public async Task<Project> AddProject([FromBody] Project project)
-        // {
-        //     await _context.Projects.AddAsync(project);
-        //     await _context.SaveChangesAsync();
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<Project> AddProject([FromBody] Project project)
+        {
+            await _context.Projects.AddAsync(project);
+            await _context.SaveChangesAsync();
 
-        //     return project;
-        // }
+            return project;
+        }
 
         // [AllowAnonymous]
         // [HttpPut("{id}")]

@@ -20,4 +20,8 @@ export class ProjectService {
     return this.http.get<Project>(this.baseUrl + 'projects/' + id);
   }
 
+  addProject(project: Project) {
+    return this.http.post(this.baseUrl + 'projects', project);
+  }
+
 }
